@@ -294,7 +294,7 @@ export abstract class BaseStrategy implements Strategy {
 
     const newVersionTag = new TagName(
       newVersion,
-      this.includeComponentInTag ? component : undefined,
+      undefined,
       this.tagSeparator,
       this.includeVInTag
     );
