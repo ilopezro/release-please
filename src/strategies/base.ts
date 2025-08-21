@@ -694,14 +694,11 @@ export abstract class BaseStrategy implements Strategy {
 
     const tag = new TagName(
       version,
-      this.includeComponentInTag ? component : undefined,
+      undefined,
       this.tagSeparator,
       this.includeVInTag
     );
-    const releaseName =
-      component && this.includeComponentInTag
-        ? `${component}: v${version.toString()}`
-        : `v${version.toString()}`;
+    const releaseName = `v${version.toString()}`;
     return {
       name: releaseName,
       tag,
