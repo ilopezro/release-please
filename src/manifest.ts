@@ -656,7 +656,7 @@ export class Manifest {
           `Needed bootstrapping, found configured bootstrapSha ${this.bootstrapSha}`
         );
         break;
-      } else if (!needsBootstrap && releaseCommitsFound >= expectedShas) {
+      } else if (releaseCommitsFound >= expectedShas) {
         // found enough commits
         break;
       }
@@ -692,7 +692,7 @@ export class Manifest {
     }
     const commitExclude = new CommitExclude(this.repositoryConfig);
     commitsPerPath = commitExclude.excludeCommits(commitsPerPath);
-    console.log();
+
     // backfill latest release tags from manifest
     for (const path in this.repositoryConfig) {
       const latestRelease = releasesByPath[path];
